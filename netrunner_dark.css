@@ -1,0 +1,136 @@
+@font-face {
+    font-family: lcd;
+    src: url('lcd.ttf');
+}
+
+body {
+    background-image: url(black-static-theme.jpg);
+    height: 100%;
+}
+
+/* ///////////////////////////////////////////////  FONT CONTROL //////////////////////////////////////////////////////////////////// */
+p,
+h2,
+.button {
+    font-family: monospace;
+    color: rgb(100, 100, 100);
+    /* color: rgb(0,150,0); */
+}
+
+h1,
+span,
+footer,
+header {
+    font-family: lcd;
+    color: rgb(100, 100, 100);
+    /* color: rgb(0,150,0); */
+}
+
+h1 {
+    font-size: 44pt;
+    font-family: lcd;
+    font-style: italic;
+}
+
+h2, .button {
+    font-size: 18pt;
+    text-decoration: underline;
+
+}
+/* ///////////////////////////////////////////////  CONTAINER CONTROL //////////////////////////////////////////////////////////////////// */
+header,
+.box,
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+
+
+.left-panel, .centre-panel, .right-panel {
+    height:79vh;
+}
+
+.centre-panel {
+    flex-grow: 2;
+}
+
+.left-panel,
+.right-panel {
+    flex-grow: 1;
+}
+
+.input-box {
+    text-align: center;
+    
+
+}
+
+.uname {
+    flex-grow: 1;
+}
+
+.input {
+    flex-grow: 5;
+}
+
+input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    color: #646464;
+    font-family: lcd;
+    border: rgb(50, 50, 50);
+    /* border: rgb(0,150,0); */
+    border-style: solid;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+/* ///////////////////////////////////////////////  IMAGE CONTROL //////////////////////////////////////////////////////////////////// */
+.img-qr {
+    width: fit-content;
+    opacity: 40%;
+}
+
+/* ///////////////////////////////////////////////  BORDER CONTROL //////////////////////////////////////////////////////////////////// */
+.borders {
+    border: rgb(50, 50, 50);
+    /* border: rgb(0,150,0); */
+    border-style: solid;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 3px;
+}
+
+hr {
+    border: 2px solid white;
+}
+
+/* ///////////////////////////////////////////////  BUTTONS //////////////////////////////////////////////////////////////////// */
+.button {
+    background: none;
+
+    
+}
+
+
+
+/* ///////////////////////////////////////////////  BIG BOY BOX //////////////////////////////////////////////////////////////////// */
+
+.skull-box {
+    background-image: url(centre-logo_skull-on-black.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+    height: 69vh;
+}
+
+/* ///////////////////////////////////////////////  HOVERS //////////////////////////////////////////////////////////////////// */
+
+header:hover, .left-panel:hover, .skull-box:hover, .input:hover, .right-panel:hover, footer:hover {
+    background-color: rgba(255,255,255,0.05);
+}

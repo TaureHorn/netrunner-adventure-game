@@ -13,49 +13,160 @@
 
     <link rel="stylesheet" href="netrunner_dark.css">
 
-
+    <!-- FAVICON TEST -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <script defer src="netrunner_js.js"></script>
 
-    <title>🖥️grim@data-tech_u97212</title>
+    <title>grim@zetatech_u97212</title>
 
 
 </head>
 
 <body>
     <!-- ========================================================================================================================= -->
+
     <header id="header" class="header borders">
-        <div id="qr-container">
-            <img src="follow-me.png" class="img-qr"
-                title="For more information on your DataTech terminal software package follow the link."
-                alt="mysterious qr code">
+
+        <div id="netwatch-logo-container">
+            <img src="resources/netwatch.png" class="img netwatch-logo" style="height: 5vh; width: 20vw;"
+                title="To Protect and Serve" alt="netwatch logo">
         </div>
         <div id="pagetitle-container">
-            <h1 id="pagetitle">NETWATCH NETRUNNER</h1>
+            <h1 id="pagetitle">---NETRUNNER---</h1>
         </div>
         <div id="theme-container">
-            <span id="theme-name"><em>v1.15.7 {modified by grim}</em></span>
+            <span id="theme-name"><em>v1.15.7 {modified by shade}</em></span>
         </div>
     </header>
+
     <!-- ========================================================================================================================= -->
     <div id="main-content-container" class="box">
-        <div id="left panel" class="left-panel borders">
-            <button id="help" class="button borders" onclick="toggleHelp()">Help</button>
-            <div id="help-section" style="display:none">
-                <p>Looking for some assistance? Hover over one of the commands below to learn more about what it does.
-                </p>
-                <h2 title="list files in current directory">ls</h2>
-                <h2 title="connect to an ip and open a remote shell">ssh</h2>
+        <div id="left panel" class="left-panel borders" style="position:relative">
+            <div id="main-section-button-pad" style="padding:2%">
+                <button id="help-button" class="button borders" onclick="toggleHelp()">=== Help===</button>
+            </div>
+            <div id="scrolling" class="scroll">
+                <div id="help-section" style="display:none">
+                    <button id="readme-help-button" class="button borders" onclick="toggleReadMeHelp()">READ
+                        ME!</button>
+                    <div id="readme" style="display: block">
+                        <p>Yo! Regina told me you were new to the world of netrunning and wanted to get your feet wet,
+                            well
+                            not
+                            actually wet - that'll come later, much later.
+                            Anyway, real lucky for you that I owe her a favor. I set up this virutal machine for you to
+                            get
+                            the basics down, to stretch your cyber-legs.
+                            It's not much, not compared to like the new Raven micro-processors or whatever. But... when
+                            you
+                            fuck up - and you <strong> will</strong> fuck up - TraumaTeam
+                            won't be barging down your door to carry your braindead body to hospital or worse. If you
+                            have
+                            any burning questions, hit me up on irc. If you can't work out how
+                            to do that, not my problem. Tell Regina I did her good!
+                        </p>
+                        <p>-<em>Shade</em></p>
+                        <p>Oh and ps, I set you up with a handle. When Reggie told me about the job, I asked for detes,
+                            she
+                            told me I don't wanna know. Backstory's something
+                            real grim. There you go // grim // hope you like it.
+                        </p>
+                    </div>
+                    <button id="shell-button" class="button borders" onclick="toggleShellHelp()">SHELL COMMANDS</button>
+                    <div id="shell-help" style="display:none">
+                        <p>If you need to learn what some of the commands you can type actually do.</p>
+                        <li onmouseenter="toggleLs()" onmouseleave="toggleLs()">ls</li>
+                        <p id="ls" style="display:none">list files in current directory</p>
+                        <li onmouseenter="toggleCat()" onmouseleave="toggleCat()">cat</li>
+                        <p id="cat" style="display:none">print the contents of a file. stands for conCATenate</p>
+                        <li onmouseenter="toggleClear()" onmouseleave="toggleClear()">clear</li>
+                        <p id="clear" style="display:none">clears out command history on screen</p>
+                        <li onmouseenter="toggleFile()" onmouseleave="toggleFile()">file</li>
+                        <p id="file" style="display:none">list metadata of a file</p>
+                        <li onmouseenter="toggleSsh()" onmouseleave="toggleSsh()">ssh</li>
+                        <p id="ssh" style="display:none">connect to an ip and open a remote shell</p>
+                        <li onmouseenter="toggleSteghide()" onmouseleave="toggleSteghide()">steghide</li>
+                        <p id="steghide" style="display:none">extract data hidden within a file</p>
+                    </div>
+                    <button id="glossary-button" class="button borders" onclick="toggleGlossary()">GLOSSARY</button>
+                    <div id="glossary" style="display: none;">
+                        <p>It's a big wide world out there. Can't be expected to know everything. That's what data
+                            storage
+                            is for.</p>
+                        <li id="arasaka-header" onmouseenter="toggleGlossaryArasaka()"
+                            onmouseleave="toggleGlossaryArasaka()">Arasaka</li>
+                        <p id="arasaka" style="display: none;"> The second largest corporation in all of the NUSA! Shame
+                            they're not even American.
+                            Now I'm no 'patridiot' but something tells me a corporation half a world away having that
+                            much
+                            power
+                            aint a good thing. At least moron in chief 'President Myers' is enough of a militech shill
+                            to
+                            keep
+                            'em in line.
+                        </p>
+                        <br>
+                        <li id="militech-header" onmouseenter="toggleGlossaryMilitech()"
+                            onmouseleave="toggleGlossaryMilitech()">Militech</li>
+                        <p id="militech" style="display: none;">Good old home grown American capitalism at its finest.
+                            If
+                            you need guns, vehicles, military personnel
+                            or all three at the same time, Militech has you covered. Provided you got the scratch.
+                            Basically
+                            if you got a need to spit lead at someone they'll
+                            let you buy the tools or hire the people to do so. It's like old-school banditry, except its
+                            like fine because <s>CEO</s> 'President' Rosalind Myers
+                            used to head the corp and she says its all cool. </p>
+
+                        <br>
+                        <li id="militech-header" onmouseenter="toggleGlossaryNetwatch()"
+                            onmouseleave="toggleGlossaryNetwatch()">Netwatch</li>
+                        <p id="netwatch" style="display: none;"> Ever heard of a thing called the Blackwall. ~~~
+                            Spooooooky
+                            ~~~. A big shield to keep all those
+                            nasty
+                            rogue, pre-war AI's at bay.
+                            The grand picket fence of cyberspace! Just so happens that if you have the eddies,
+                            Netwatch'll
+                            patrol your little section of that fence.
+                            And hey, if they happen to take a peek at whatever data is flowing around there, that's just
+                            a
+                            happy
+                            coincidence.
+                            It's not like knowing the inside business of anyone and everyone with a couple of eddies a
+                            lucrative
+                            opportunity for state
+                            sanctioned skullduggery. But never-you-mind that it literally says protected by Netwatch at
+                            the
+                            bottom of your screen.
+                            I took care of that for ya. Just left the message to keep you on your toes.</p>
+                    </div>
+                </div>
             </div>
         </div>
+
         <!-- ========================================================================================================================= -->
         <div id="centre panel" class="centre-panel borders">
             <div id="output" class="skull-box">
-                <p>shh grim@data-tech_u97212</p>
-                <p>su</p>
-                <p>ufw --config tcp-ip --port-5000 --off</p>
-                <p>vim .bashrc</p>
-                <p>rm .bash_history</p>
+                <p>Here</p>
+                <p>is</p>
+                <p>where</p>
+                <p>previously</p>
+                <p>typed</p>
+                <p>commands</p>
+                <p>will</p>
+                <p>go</p>
+                <p>...</p>
+                <p>e.g</p>
+                <p>ls</p>
+                <p>cat</p>
             </div>
             <hr>
             <div id="input-zone" class="box input-box">
@@ -69,21 +180,73 @@
         </div>
         <!-- ========================================================================================================================= -->
         <div id="right panel" class="right-panel borders">
-            <button id="Misc" class="button borders" onclick="toggleMisc()">Misc</button>
-            <div id="misc-section" style="display:none">
-                <p>Below are a few pieces of information to help you along your way.
-                </p>
-                <h2>Glossary</h2>
-                <h2>Music</h2>
-                <h2>Themes</h2>
+            <div id="main-section-button-padding" style="padding: 2%;">
+                <button id="Misc" class="button borders" onclick="toggleMisc()">=== Misc ===</button>
+            </div>
+            <div id="scrolling" class="scroll">
+                <div id="misc-section" style="display:none">
+                    <button id="readme-misc-button" class="button borders" onclick="toggleReadMeMisc()">READ
+                        ME!</button>
+                    <div id="readme-misc">
+                        <p>Yo choom! There was a load of Netwatch garbage pre-installed here. I cleaned it up for you - no
+                            prying
+                            eyes. In its place I've left you some stuff, just some creature comforts. Cyberspace isn't always about circ' frying and ice baths.
+                            Sometimes
+                            it's just chill.
+                        </p>
+                        <p> -<em>Shade </em></p>
+                    </div>
+
+                    <button id="music-button" class="button borders" onclick="toggleMusic()">MUSIC</button>
+                    <div id="music" style="display:none">
+                        <div id="music-container" class="">
+                            <iframe style="border: 0; width: 100%; height: 120px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=3483895767/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/"
+                                seamless><a href="https://lazerhawk.bandcamp.com/album/skull-and-shark">Skull and Shark
+                                    by
+                                    Lazerhawk</a></iframe>
+                        </div>
+
+                        <div id="music-container" class="">
+                            <iframe style="border: 0; width: 100%; height: 120px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=3352492535/size=large/bgcol=262a2b/linkcol=181a1b/tracklist=false/artwork=small/transparent=true/"
+                                seamless><a href="https://perturbator.bandcamp.com/album/i-am-the-night">I Am The Night
+                                    by
+                                    Perturbator</a></iframe>
+                        </div>
+
+                        <div id="music container" class="">
+                            <iframe style="border: 0; width: 100%; height: 120px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=4268712470/size=large/bgcol=262a2b/linkcol=181a1b/tracklist=false/artwork=small/transparent=true/"
+                                seamless><a
+                                    href="https://lorn.bandcamp.com/album/yesterdays-pain-cut-the-anchor">YESTERDAY&#39;S
+                                    PAIN /
+                                    CUT THE ANCHOR by LORN</a></iframe>
+                        </div>
+                    </div>
+                    <button id="themes-button" class="button borders" onclick="toggleThemes()">THEMES</button>
+                    <div id="themes" style="display:none">
+                        <p>Sorry choom! This functionality is not yet working!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- ========================================================================================================================= -->
     <footer id="footer" class="footer borders">
-        <div id="netwatch-card">
-            <span><em>|| Powered by DataTech</em> /|\ <em>Protected by Netwatch ||</em></span>
+        <!-- <div id="netwatch-card"> -->
+        <div id="zetatech-logo-container">
+            <img src="resources/zetatech.png" class="img" style="height: 6vh; width: 10vw;"
+                title="error {\company-slogan.txt\} not found" alt="zetatech logo">
         </div>
+        <span><em>|| Powered by Zetatech</em> /|\ <em>Protected by Netwatch ||</em></span>
+
+        <div id="qr-container">
+            <img src="resources/follow-me.png" class="img qr"
+                title="For more information on your DataTech terminal software package follow the link."
+                alt="mysterious qr code">
+        </div>
+        <!-- </div> -->
     </footer>
 </body>
 

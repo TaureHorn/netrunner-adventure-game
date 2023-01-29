@@ -1,23 +1,28 @@
 @font-face {
     font-family: lcd;
-    src: url('lcd.ttf');
+    src: url('resources/lcd.ttf');
 }
 
 body {
-    background-image: url(black-static-theme.jpg);
+    /* background-color: #F3E600; */
+    /* background-color: black; */
+    background-image: url(resources/black-scanline-theme.jpg);
     height: 100%;
+
+    scrollbar-width: 150px;
 }
 
 /* ///////////////////////////////////////////////  FONT CONTROL //////////////////////////////////////////////////////////////////// */
 p,
-h2,
-.button {
+li {
     font-family: monospace;
     color: rgb(100, 100, 100);
     /* color: rgb(0,150,0); */
 }
 
 h1,
+h2,
+.button,
 span,
 footer,
 header {
@@ -32,24 +37,38 @@ h1 {
     font-style: italic;
 }
 
-h2, .button {
+h2,
+.button {
     font-size: 18pt;
     text-decoration: underline;
 
 }
+
+li {
+    margin-left: 2%;
+}
+
 /* ///////////////////////////////////////////////  CONTAINER CONTROL //////////////////////////////////////////////////////////////////// */
-header,
+
 .box,
+header,
 footer {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+}
+
+header,
+footer {
+    flex-wrap: wrap;
 }
 
 
 
-.left-panel, .centre-panel, .right-panel {
-    height:79vh;
+.left-panel,
+.centre-panel,
+.right-panel {
+    height: 83vh;
 }
 
 .centre-panel {
@@ -59,11 +78,25 @@ footer {
 .left-panel,
 .right-panel {
     flex-grow: 1;
+    max-width: 26%;
+    min-width: 26%;
+    text-align: justify;
+}
+
+.right-panel {
+    justify-content: flex-end;
+
+}
+
+.scroll {
+    max-height: 90%;
+    padding: 2%;
+    overflow-y: auto;
 }
 
 .input-box {
     text-align: center;
-    
+
 
 }
 
@@ -80,20 +113,27 @@ input {
     background-color: rgba(255, 255, 255, 0);
     color: #646464;
     font-family: lcd;
-    border: rgb(50, 50, 50);
+    border: rgb(120, 120, 120);
     /* border: rgb(0,150,0); */
     border-style: solid;
 }
 
 footer {
     display: flex;
-    justify-content: center;
+    /* justify-content: space-between; */
+
 }
 
 /* ///////////////////////////////////////////////  IMAGE CONTROL //////////////////////////////////////////////////////////////////// */
-.img-qr {
+.img {
     width: fit-content;
-    opacity: 40%;
+    opacity: 33%;
+}
+
+.qr {
+    height: 70%;
+    width: 70%;
+
 }
 
 /* ///////////////////////////////////////////////  BORDER CONTROL //////////////////////////////////////////////////////////////////// */
@@ -110,27 +150,44 @@ hr {
     border: 2px solid white;
 }
 
-/* ///////////////////////////////////////////////  BUTTONS //////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////  INTERACTABLE ELEMENTS I.E. BUTTONS //////////////////////////////////////////////////////////////////// */
 .button {
     background: none;
-
-    
+    width: 100%;
 }
-
 
 
 /* ///////////////////////////////////////////////  BIG BOY BOX //////////////////////////////////////////////////////////////////// */
 
 .skull-box {
-    background-image: url(centre-logo_skull-on-black.png);
+    background-image: url(resources/centre-logo_skull-on-black.png);
     background-position: 50%;
     background-repeat: no-repeat;
 
-    height: 69vh;
+    height: 72vh;
 }
 
-/* ///////////////////////////////////////////////  HOVERS //////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////  HOVERS AND ACTIVES //////////////////////////////////////////////////////////////////// */
 
-header:hover, .left-panel:hover, .skull-box:hover, .input:hover, .right-panel:hover, footer:hover {
-    background-color: rgba(255,255,255,0.05);
+
+/* general panel highlights*/
+header:hover,
+.left-panel:hover,
+.skull-box:hover,
+.input:hover,
+.right-panel:hover,
+footer:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* general inter-panel element highlights*/
+.button:hover,
+li:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* general inter-panel element activation highlights*/
+.button:active,
+li:active {
+    background-color: rgba(255, 255, 255, 0.45);
 }

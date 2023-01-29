@@ -37,8 +37,8 @@ function toggleGlossary() {
     }
 }
 
-function toggleMisc() {
-    let x = document.getElementById("misc-section");
+function toggleSoftware() {
+    let x = document.getElementById("software-section");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -46,8 +46,8 @@ function toggleMisc() {
     }
 }
 
-function toggleReadMeMisc() {
-    let x = document.getElementById("readme-misc");
+function toggleReadMeSoftware() {
+    let x = document.getElementById("readme-software");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -57,6 +57,15 @@ function toggleReadMeMisc() {
 
 function toggleMusic() {
     let x = document.getElementById("music");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleNotes() {
+    let x = document.getElementById("notes");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -74,6 +83,8 @@ function toggleThemes() {
 }
 
 //////////////////////////////////////// SUBHEADER TOGGLERS ////////////////////////
+
+//////////////////////////////////////// SHELL COMMANDS ////////////////////////////
 
 function toggleLs() {
     let x = document.getElementById("ls");
@@ -128,6 +139,7 @@ function toggleSteghide() {
         x.style.display = "none";
     }
 }
+
 function toggleGlossaryArasaka() {
     let x = document.getElementById("arasaka");
     if (x.style.display === "none") {
@@ -154,3 +166,16 @@ function toggleGlossaryNetwatch() {
         x.style.display = "none";
     }
 }
+
+//////////////////////////////////////// THEMES /////////////////////////////////////
+
+// function setDarkTheme(){
+//     document.querySelector(".borders-white").classList.add("borders")
+//     document.querySelector(".borders").classList.("borders-white")
+// }
+
+
+// function setHighConstrastTheme(){
+//     document.querySelector(".borders").classList.add("borders-white")
+//     document.querySelector(".borders-white").classList.remove("borders");
+// }

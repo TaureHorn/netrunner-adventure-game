@@ -3,21 +3,22 @@
     src: url('resources/lcd.ttf');
 }
 
-body {
-    /* background-color: #F3E600; */
-    /* background-color: black; */
+.dark-theme {
     background-image: url(resources/black-scanline-theme.jpg);
     height: 100%;
+}
 
-    scrollbar-width: 150px;
+.light-theme {
+    background-color: rgb(210,210,);
+    height: 100%;
 }
 
 /* ///////////////////////////////////////////////  FONT CONTROL //////////////////////////////////////////////////////////////////// */
 p,
-li {
+li,
+textarea {
     font-family: monospace;
     color: rgb(100, 100, 100);
-    /* color: rgb(0,150,0); */
 }
 
 h1,
@@ -28,7 +29,6 @@ footer,
 header {
     font-family: lcd;
     color: rgb(100, 100, 100);
-    /* color: rgb(0,150,0); */
 }
 
 h1 {
@@ -114,13 +114,17 @@ input {
     color: #646464;
     font-family: lcd;
     border: rgb(120, 120, 120);
-    /* border: rgb(0,150,0); */
     border-style: solid;
+}
+
+textarea {
+    width: 100%;
+    background:none;
+
 }
 
 footer {
     display: flex;
-    /* justify-content: space-between; */
 
 }
 
@@ -138,8 +142,15 @@ footer {
 
 /* ///////////////////////////////////////////////  BORDER CONTROL //////////////////////////////////////////////////////////////////// */
 .borders {
-    border: rgb(50, 50, 50);
-    /* border: rgb(0,150,0); */
+    border-color: rgb(50, 50, 50);
+    border-style: solid;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 3px;
+}
+
+.borders-white {
+    border-color: rgb(255, 255, 255);
     border-style: solid;
     border-radius: 1px;
     padding: 10px;

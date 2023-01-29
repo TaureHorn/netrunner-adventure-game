@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -22,14 +20,13 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <script defer src="netrunner_js.js"></script>
+    <script defer src="netrunner_js.js"></script>    
 
     <title>grim@zetatech_u97212</title>
 
-
 </head>
 
-<body>
+<body class="dark-theme">
     <!-- ========================================================================================================================= -->
 
     <header id="header" class="header borders">
@@ -53,7 +50,7 @@
                 <button id="help-button" class="button borders" onclick="toggleHelp()">=== Help===</button>
             </div>
             <div id="scrolling" class="scroll">
-                <div id="help-section" style="display:none">
+                <div id="help-section" style="display:block">
                     <button id="readme-help-button" class="button borders" onclick="toggleReadMeHelp()">READ
                         ME!</button>
                     <div id="readme" style="display: block">
@@ -61,22 +58,26 @@
                             well
                             not
                             actually wet - that'll come later, much later.
-                            Anyway, real lucky for you that I owe her a favor. I set up this virutal machine for you to
+                            Anyway, real lucky for you that I owe her a favor. I set up this virtual machine for you to
                             get
                             the basics down, to stretch your cyber-legs.
-                            It's not much, not compared to like the new Raven micro-processors or whatever. But... when
+                            It's not much, not compared to - like - the new Raven micro-processors or whatever. But... when
                             you
                             fuck up - and you <strong> will</strong> fuck up - TraumaTeam
-                            won't be barging down your door to carry your braindead body to hospital or worse. If you
-                            have
-                            any burning questions, hit me up on irc. If you can't work out how
-                            to do that, not my problem. Tell Regina I did her good!
+                            won't be barging down your door to carry your braindead body to hospital or worse.</p>
+                        <p> To save us both a lot of hassle this machine only runs in RAM, no storage. So don't reload
+                            the page unless you've really
+                            messed something up and wanna reset.</p>
+
+                        <p>
+                            Any super burning questions, hit me up on irc - but plx try to work it out yourself first, k. If you can't work out how
+                            to get to irc, you're a lost cause. Tell Regina I did her good!
                         </p>
                         <p>-<em>Shade</em></p>
                         <p>Oh and ps, I set you up with a handle. When Reggie told me about the job, I asked for detes,
                             she
                             told me I don't wanna know. Backstory's something
-                            real grim. There you go // grim // hope you like it.
+                            real grim. There you go, // <em>grim</em> // hope you like it.
                         </p>
                     </div>
                     <button id="shell-button" class="button borders" onclick="toggleShellHelp()">SHELL COMMANDS</button>
@@ -174,23 +175,25 @@
                     <p>[grim@data-tech_u97212 ~]$</p>
                 </div>
                 <div id="input-box" class="input">
-                    <input type="text" value="..." class="">
+                    <input type="text" placeholder="...">
                 </div>
             </div>
         </div>
         <!-- ========================================================================================================================= -->
         <div id="right panel" class="right-panel borders">
             <div id="main-section-button-padding" style="padding: 2%;">
-                <button id="Misc" class="button borders" onclick="toggleMisc()">=== Misc ===</button>
+                <button id="software" class="button borders" onclick="toggleSoftware()">=== SOFTWARE ===</button>
             </div>
             <div id="scrolling" class="scroll">
-                <div id="misc-section" style="display:none">
-                    <button id="readme-misc-button" class="button borders" onclick="toggleReadMeMisc()">READ
+                <div id="software-section" style="display:block">
+                    <button id="readme-misc-button" class="button borders" onclick="toggleReadMeSoftware()">READ
                         ME!</button>
-                    <div id="readme-misc">
-                        <p>Yo choom! There was a load of Netwatch garbage pre-installed here. I cleaned it up for you - no
+                    <div id="readme-software">
+                        <p>Yo choom! There was a load of Netwatch garbage pre-installed here. I cleaned it up for you -
+                            no
                             prying
-                            eyes. In its place I've left you some stuff, just some creature comforts. Cyberspace isn't always about circ' frying and ice baths.
+                            eyes. In its place I've left you some stuff, just some creature comforts. Cyberspace isn't
+                            always about circ' frying and ice baths.
                             Sometimes
                             it's just chill.
                         </p>
@@ -224,9 +227,17 @@
                                     CUT THE ANCHOR by LORN</a></iframe>
                         </div>
                     </div>
+
+                    <button id="notes-button" class="button borders" onclick="toggleNotes()">NOTES</button>
+                    <div id="notes" style="display: none">
+                        <textarea id="notes-box" class="borders"
+                            placeholder="If you wanna take some notes, here's the place..."></textarea>
+                    </div>
+
                     <button id="themes-button" class="button borders" onclick="toggleThemes()">THEMES</button>
                     <div id="themes" style="display:none">
-                        <p>Sorry choom! This functionality is not yet working!</p>
+                        <li id="theme-dark" style="text-decoration:underline; font-weight: bold;" onclick="setDarkTheme()">dark <em>{by shade}</em></li>
+                        <li id="theme-high-contrast" style="text-decoration: none; font-weight: normal;" onclick="setHighConstrastTheme()">high contrast <em>by b@d</em></li>
                     </div>
                 </div>
             </div>
@@ -248,6 +259,8 @@
         </div>
         <!-- </div> -->
     </footer>
+
+   
 </body>
 
 </html>

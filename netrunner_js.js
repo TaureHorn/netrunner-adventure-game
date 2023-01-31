@@ -1,8 +1,27 @@
+function startGame() {
 
-//////////////////////////////////////// BUTTON TOGGLERS ////////////////////////
+    document.addEventListener("keydown", function (event) {
+        let inputBox = document.getElementById("input");
+        let outputBox = document.getElementById("output");
+        if (event.key === "Enter") {
+            command = inputBox.value;
+            (outputBox.innerHTML = command);
+            (inputBox.value = '');
+            // takes input value and prints to output box and wipes input field
+        } else {
+        }
 
-function toggleHelp() {
-    let x = document.getElementById("help-section");
+    })
+};
+/// incomplete
+
+//////////////////////////////////////// BUTTON TOGGLERS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const toggleButtonSectionIds = ["help-section", "readme", "shell-help", "glossary", "software-section", "readme-software", "music", "notes", "themes"];
+const toggleHoverSectionIds = ["ls", "cat", "clear", "file", "ssh", "steghide", "arasaka", "militech", "netwatch"]
+
+function toggleSection(section) {
+    let x = document.getElementById(section);
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -10,172 +29,138 @@ function toggleHelp() {
     }
 }
 
-function toggleReadMeHelp() {
-    let x = document.getElementById("readme");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
 
-function toggleShellHelp() {
-    let x = document.getElementById("shell-help");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+//////////////////////////////////////// SUBHEADER TOGGLERS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleGlossary() {
-    let x = document.getElementById("glossary");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+//////////////////////////////////////// SHELL COMMANDS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleSoftware() {
-    let x = document.getElementById("software-section");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+//////////////////////////////////////// THEMES //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleReadMeSoftware() {
-    let x = document.getElementById("readme-software");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+const darkToggle = document.getElementById("theme-dark");
+const highToggle = document.getElementById("theme-high-contrast");
+const arasakaToggle = document.getElementById("theme-arasaka");
+const whiteToggle = document.getElementById("theme-white");
+const yellowToggle = document.getElementById("theme-yellow");
+const blueToggle = document.getElementById("theme-bsod");
+const themesToggle = document.getElementById("themes")
 
-function toggleMusic() {
-    let x = document.getElementById("music");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+const cssLink = document.getElementById("css");
 
-function toggleNotes() {
-    let x = document.getElementById("notes");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+darkToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "100%";
+    highToggle.style.opacity = "50%";
+    arasakaToggle.style.opacity = "50%";
+    whiteToggle.style.opacity = "50%";
+    yellowToggle.style.opacity = "50%";
+    blueToggle.style.opacity = "50%";
+    cssLink.setAttribute("href", "css/netrunner_dark.css")
+})
 
-function toggleThemes() {
-    let x = document.getElementById("themes");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+highToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "50%";
+    highToggle.style.opacity = "100%";
+    arasakaToggle.style.opacity = "50%";
+    whiteToggle.style.opacity = "50%";
+    yellowToggle.style.opacity = "50%";
+    blueToggle.style.opacity = "50%";
+    cssLink.setAttribute("href", "css/netrunner_high.css")
+})
 
-//////////////////////////////////////// SUBHEADER TOGGLERS ////////////////////////
+arasakaToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "50%";
+    highToggle.style.opacity = "50%";
+    arasakaToggle.style.opacity = "100%";
+    whiteToggle.style.opacity = "50%";
+    yellowToggle.style.opacity = "50%";
+    blueToggle.style.opacity = "50%";
+    cssLink.setAttribute("href", "css/netrunner_arasaka.css")
+})
 
-//////////////////////////////////////// SHELL COMMANDS ////////////////////////////
+whiteToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "50%";
+    highToggle.style.opacity = "50%";
+    arasakaToggle.style.opacity = "50%";
+    whiteToggle.style.opacity = "100%";
+    yellowToggle.style.opacity = "50%";
+    blueToggle.style.opacity = "50%";
+    cssLink.setAttribute("href", "css/netrunner_white.css")
+})
 
-function toggleLs() {
-    let x = document.getElementById("ls");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+yellowToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "50%";
+    highToggle.style.opacity = "50%";
+    arasakaToggle.style.opacity = "50%";
+    whiteToggle.style.opacity = "50%";
+    yellowToggle.style.opacity = "100%";
+    blueToggle.style.opacity = "50%";
+    cssLink.setAttribute("href", "css/netrunner_yellow.css")
+})
 
-function toggleCat() {
-    let x = document.getElementById("cat");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+blueToggle.addEventListener('click', function () {
+    darkToggle.style.opacity = "50%";
+    highToggle.style.opacity = "50%";
+    arasakaToggle.style.opacity = "50%";
+    whiteToggle.style.opacity = "50%";
+    yellowToggle.style.opacity = "50%";
+    blueToggle.style.opacity = "100%";
+    cssLink.setAttribute("href", "css/netrunner_blue.css")
+})
 
-function toggleClear() {
-    let x = document.getElementById("clear");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+// legacy themeing function --- still might be useful as a reference
 
-function toggleFile() {
-    let x = document.getElementById("file");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleSsh() {
-    let x = document.getElementById("ssh");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleSteghide() {
-    let x = document.getElementById("steghide");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleGlossaryArasaka() {
-    let x = document.getElementById("arasaka");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleGlossaryMilitech() {
-    let x = document.getElementById("militech");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleGlossaryNetwatch() {
-    let x = document.getElementById("netwatch");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-//////////////////////////////////////// THEMES /////////////////////////////////////
-
-// function setDarkTheme(){
-//     document.querySelector(".borders-white").classList.add("borders")
-//     document.querySelector(".borders").classList.("borders-white")
+//     let borders = document.querySelectorAll(".borders").forEach(element => {
+//         element.classList.add("borders-white");
+//         element.classList.remove("borders");
+//     });
 // }
+/////////////////////////////////////// LIVE LEARNING AND TESTING /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class character {
+    constructor(name, description, pronoun, nickname) {
+        this._name = name;
+        this._desription = description;
+        this._pronoun = pronoun;
+        this._nickname = nickname;
+    }
 
+    describe() {
+        return `${this._name}, the ${this._nickname},${this._desription}`;
+    }
 
-// function setHighConstrastTheme(){
-//     document.querySelector(".borders").classList.add("borders-white")
-//     document.querySelector(".borders-white").classList.remove("borders");
-// }
+    greeting() {
+        return `${this._name} is referred to as ${nickname}`
+    }
+}
+
+const grim = new character("grim", " is a noobie netrunner", "he", "choom")
+const shade = new character("shade", " is a circ' blasting cyber-phreak", "she", "eyes behind it all")
+const bad = new character("b@d", " hates the tyger claws", "she", "b@dass")
+const bugBear = new character("8ug8ear", "smokes tygers all night long", "she", "bug")
+const spaceBoy = new character("SpaceBoy_66", " is a friend of the loa", "he", "vdb footsolider #n+999")
+const tiNeptune = new character("TiNeptune", " is a thorn in Netwatch's rear end", "he", "t.i");
+const luce = new character("luce", " a runner and a dreamer", "she", "lucy")
+
+class directory {
+    constructor(dirName, parentDirectory, childDirectory1, childDirectory2, childDirectory3, childDirectory4) {
+        this._dirName = dirName;
+        this._parentDirectory = parentDirectory;
+        this._childDirectory1 = childDirectory1;
+        this._childDirectory2 = childDirectory2;
+        this._childDirectory3 = childDirectory3;
+        this._childDirectory4 = childDirectory4;
+    }
+
+    ls() {
+        return `current directory ${this._dirName} contains the following sub directories: ${this._childDirectory1}, ${this._childDirectory2}, ${this._childDirectory3}, ${this._childDirectory4}`;
+    }
+}
+
+const root = new directory("/", "", "boot", "etc", "home", "usr",)
+const home = new directory("~/", "/grim", "commands", "files", "gift-from-shade", "")
+const commands = new directory("~/commands", "~/", "", "", "", "")
+const giftFromShade = new directory("~/gift-from-shade", "~/", "reso-agwe-datamap", "", "", "")
+
+console.log(giftFromShade.ls())
+
+// https://github.com/TDAWebDevBootcamp/OOPs-I-made-a-game/blob/main/game%20final.js
+
+/// user input collection - nicked from neils code :)))

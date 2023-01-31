@@ -1,24 +1,71 @@
 @font-face {
     font-family: lcd;
-    src: url('resources/lcd.ttf');
+    src: url('../resources/lcd.ttf');
 }
 
-.dark-theme {
-    background-image: url(resources/black-scanline-theme.jpg);
+body {
     height: 100%;
+    padding: 10px;
+    
 }
 
-.light-theme {
-    background-color: rgb(210,210,);
-    height: 100%;
+/* ////////////////  THEME CONTROLLED VARIABLES //////////////////////////////////////////////////////////////////// */
+.body {
+    background-image: rgb(225,225,225);
 }
+
+p,
+li,
+textarea,
+input,
+h1,
+h2,
+span,
+footer,
+header,
+.borders {
+    color: black;
+    border-color: black;
+   
+}
+.centre-box-skull { 
+    background-image: url(../resources/centre-logo_skull-on-white.png);
+    opacity: 50%;
+
+}
+
+#output * {
+    color: black;
+}
+
+/* general panel highlights*/
+.left-panel:hover,
+.centre-box:hover,
+.input:hover,
+.right-panel:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+/* general inter-panel element highlights*/
+.button:hover,
+li:hover,
+input:hover {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+/* general inter-panel element activation highlights*/
+.button:active,
+li:active {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
 
 /* ///////////////////////////////////////////////  FONT CONTROL //////////////////////////////////////////////////////////////////// */
 p,
 li,
-textarea {
+textarea,
+input {
     font-family: monospace;
-    color: rgb(100, 100, 100);
 }
 
 h1,
@@ -28,7 +75,7 @@ span,
 footer,
 header {
     font-family: lcd;
-    color: rgb(100, 100, 100);
+
 }
 
 h1 {
@@ -61,6 +108,7 @@ footer {
 header,
 footer {
     flex-wrap: wrap;
+    margin: 10%;
 }
 
 
@@ -68,11 +116,12 @@ footer {
 .left-panel,
 .centre-panel,
 .right-panel {
-    height: 83vh;
+    height: 82vh;
 }
 
 .centre-panel {
     flex-grow: 2;
+
 }
 
 .left-panel,
@@ -104,22 +153,21 @@ footer {
     flex-grow: 1;
 }
 
-.input {
+.user-input {
     flex-grow: 5;
+    align-items: center;
 }
 
 input {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    color: #646464;
-    font-family: lcd;
-    border: rgb(120, 120, 120);
-    border-style: solid;
+    background:none;
+    font-weight: bold;
+
 }
 
 textarea {
     width: 100%;
-    background:none;
+    background: none;
 
 }
 
@@ -131,34 +179,30 @@ footer {
 /* ///////////////////////////////////////////////  IMAGE CONTROL //////////////////////////////////////////////////////////////////// */
 .img {
     width: fit-content;
-    opacity: 33%;
+}
+
+.netwatch-logo,
+.zetatech-logo,
+.qr {
+    filter: invert();
 }
 
 .qr {
     height: 70%;
     width: 70%;
-
 }
 
 /* ///////////////////////////////////////////////  BORDER CONTROL //////////////////////////////////////////////////////////////////// */
 .borders {
-    border-color: rgb(50, 50, 50);
     border-style: solid;
-    border-radius: 1px;
-    padding: 10px;
-    margin: 3px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
 }
 
-.borders-white {
-    border-color: rgb(255, 255, 255);
-    border-style: solid;
-    border-radius: 1px;
-    padding: 10px;
-    margin: 3px;
-}
 
 hr {
-    border: 2px solid white;
+    border: 4px solid white;
 }
 
 /* ///////////////////////////////////////////////  INTERACTABLE ELEMENTS I.E. BUTTONS //////////////////////////////////////////////////////////////////// */
@@ -167,38 +211,24 @@ hr {
     width: 100%;
 }
 
+.music-embed {
+    opacity:33%;
+}
 
 /* ///////////////////////////////////////////////  BIG BOY BOX //////////////////////////////////////////////////////////////////// */
 
-.skull-box {
-    background-image: url(resources/centre-logo_skull-on-black.png);
+.centre-box {
     background-position: 50%;
     background-repeat: no-repeat;
-
-    height: 72vh;
+    padding: 30px;
+    font-size: 14pt;
+    height: 90%;
+    object-fit: cover;
 }
 
 /* ///////////////////////////////////////////////  HOVERS AND ACTIVES //////////////////////////////////////////////////////////////////// */
 
 
-/* general panel highlights*/
-header:hover,
-.left-panel:hover,
-.skull-box:hover,
-.input:hover,
-.right-panel:hover,
-footer:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* general inter-panel element highlights*/
-.button:hover,
-li:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-/* general inter-panel element activation highlights*/
-.button:active,
-li:active {
-    background-color: rgba(255, 255, 255, 0.45);
+.music-embed:hover {
+    opacity: 70%;
 }

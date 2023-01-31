@@ -1,0 +1,226 @@
+@font-face {
+    font-family: lcd;
+    src: url('../resources/lcd.ttf');
+}
+
+body {
+    height: 100%;
+    padding: 10px;
+    
+}
+
+/* ////////////////  THEME CONTROLLED VARIABLES //////////////////////////////////////////////////////////////////// */
+.body {
+    background-color: #0827F5;
+}
+
+p,
+li,
+textarea,
+input,
+h1,
+h2,
+span,
+footer,
+header,
+.borders {
+    color: white;
+    border-color:white);
+   
+}
+.centre-box-skull { 
+    background-image:
+}
+
+#output * {
+    color: white;
+}
+
+/* general panel highlights*/
+.left-panel:hover,
+.centre-box:hover,
+.input:hover,
+.right-panel:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+/* general inter-panel element highlights*/
+.button:hover,
+li:hover,
+input:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+/* general inter-panel element activation highlights*/
+.button:active,
+li:active {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* ///////////////////////////////////////////////  FONT CONTROL //////////////////////////////////////////////////////////////////// */
+p,
+li,
+textarea,
+input {
+    font-family: monospace;
+}
+
+h1,
+h2,
+.button,
+span,
+footer,
+header {
+    font-family: lcd;
+
+}
+
+h1 {
+    font-size: 44pt;
+    font-family: lcd;
+    font-style: italic;
+}
+
+h2,
+.button {
+    font-size: 18pt;
+    text-decoration: underline;
+
+}
+
+li {
+    margin-left: 2%;
+}
+
+/* ///////////////////////////////////////////////  CONTAINER CONTROL //////////////////////////////////////////////////////////////////// */
+
+.box,
+header,
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header,
+footer {
+    flex-wrap: wrap;
+    margin: 10%;
+}
+
+
+
+.left-panel,
+.centre-panel,
+.right-panel {
+    height: 82vh;
+}
+
+.centre-panel {
+    flex-grow: 2;
+
+}
+
+.left-panel,
+.right-panel {
+    flex-grow: 1;
+    max-width: 26%;
+    min-width: 26%;
+    text-align: justify;
+}
+
+.right-panel {
+    justify-content: flex-end;
+
+}
+
+.scroll {
+    max-height: 90%;
+    padding: 2%;
+    overflow-y: auto;
+}
+
+.input-box {
+    text-align: center;
+
+
+}
+
+.uname {
+    flex-grow: 1;
+}
+
+.user-input {
+    flex-grow: 5;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background:none;
+    font-weight: bold;
+
+}
+
+textarea {
+    width: 100%;
+    background: none;
+
+}
+
+footer {
+    display: flex;
+
+}
+
+/* ///////////////////////////////////////////////  IMAGE CONTROL //////////////////////////////////////////////////////////////////// */
+.img {
+    width: fit-content;
+}
+
+.qr {
+    height: 70%;
+    width: 70%;
+}
+
+/* ///////////////////////////////////////////////  BORDER CONTROL //////////////////////////////////////////////////////////////////// */
+.borders {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+hr {
+    border: 4px solid white;
+}
+
+/* ///////////////////////////////////////////////  INTERACTABLE ELEMENTS I.E. BUTTONS //////////////////////////////////////////////////////////////////// */
+.button {
+    background: none;
+    width: 100%;
+}
+
+.music-embed {
+    opacity:33%;
+}
+
+/* ///////////////////////////////////////////////  BIG BOY BOX //////////////////////////////////////////////////////////////////// */
+
+.centre-box {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    padding: 30px;
+    font-size: 14pt;
+    height: 90%;
+    object-fit: cover;
+}
+
+/* ///////////////////////////////////////////////  HOVERS AND ACTIVES //////////////////////////////////////////////////////////////////// */
+
+
+.music-embed:hover {
+    opacity: 70%;
+}

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link id="css"rel="stylesheet" href="css/netrunner_dark.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">  
 
-    <link rel="stylesheet" href="netrunner_dark.css">
-
-    <!-- FAVICON TEST -->
+    <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
@@ -20,13 +20,16 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <script defer src="netrunner_js.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script defer src="netrunner_js.js"></script>
 
     <title>grim@zetatech_u97212</title>
 
 </head>
 
-<body class="dark-theme">
+<body class="body borders" onload="startGame()">
     <!-- ========================================================================================================================= -->
 
     <header id="header" class="header borders">
@@ -47,11 +50,13 @@
     <div id="main-content-container" class="box">
         <div id="left panel" class="left-panel borders" style="position:relative">
             <div id="main-section-button-pad" style="padding:2%">
-                <button id="help-button" class="button borders" onclick="toggleHelp()">=== Help===</button>
+                <button id="help-button" class="button borders" onclick="toggleSection(toggleButtonSectionIds[0])">===
+                    Help ===</button>
             </div>
             <div id="scrolling" class="scroll">
                 <div id="help-section" style="display:block">
-                    <button id="readme-help-button" class="button borders" onclick="toggleReadMeHelp()">READ
+                    <button id="readme-help-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[1])">READ
                         ME!</button>
                     <div id="readme" style="display: block">
                         <p>Yo! Regina told me you were new to the world of netrunning and wanted to get your feet wet,
@@ -61,7 +66,8 @@
                             Anyway, real lucky for you that I owe her a favor. I set up this virtual machine for you to
                             get
                             the basics down, to stretch your cyber-legs.
-                            It's not much, not compared to - like - the new Raven micro-processors or whatever. But... when
+                            It's not much, not compared to - like - the new Raven micro-processors or whatever. But...
+                            when
                             you
                             fuck up - and you <strong> will</strong> fuck up - TraumaTeam
                             won't be barging down your door to carry your braindead body to hospital or worse.</p>
@@ -70,7 +76,8 @@
                             messed something up and wanna reset.</p>
 
                         <p>
-                            Any super burning questions, hit me up on irc - but plx try to work it out yourself first, k. If you can't work out how
+                            Any super burning questions, hit me up on irc - but plx try to work it out yourself first,
+                            k. If you can't work out how
                             to get to irc, you're a lost cause. Tell Regina I did her good!
                         </p>
                         <p>-<em>Shade</em></p>
@@ -80,29 +87,37 @@
                             real grim. There you go, // <em>grim</em> // hope you like it.
                         </p>
                     </div>
-                    <button id="shell-button" class="button borders" onclick="toggleShellHelp()">SHELL COMMANDS</button>
+                    <button id="shell-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[2])">SHELL COMMANDS</button>
                     <div id="shell-help" style="display:none">
                         <p>If you need to learn what some of the commands you can type actually do.</p>
-                        <li onmouseenter="toggleLs()" onmouseleave="toggleLs()">ls</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[0])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[0])">ls</li>
                         <p id="ls" style="display:none">list files in current directory</p>
-                        <li onmouseenter="toggleCat()" onmouseleave="toggleCat()">cat</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[1])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[1])">cat</li>
                         <p id="cat" style="display:none">print the contents of a file. stands for conCATenate</p>
-                        <li onmouseenter="toggleClear()" onmouseleave="toggleClear()">clear</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[2])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[2])">clear</li>
                         <p id="clear" style="display:none">clears out command history on screen</p>
-                        <li onmouseenter="toggleFile()" onmouseleave="toggleFile()">file</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[3])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[3])">file</li>
                         <p id="file" style="display:none">list metadata of a file</p>
-                        <li onmouseenter="toggleSsh()" onmouseleave="toggleSsh()">ssh</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[4])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[4])">ssh</li>
                         <p id="ssh" style="display:none">connect to an ip and open a remote shell</p>
-                        <li onmouseenter="toggleSteghide()" onmouseleave="toggleSteghide()">steghide</li>
+                        <li onmouseenter="toggleSection(toggleHoverSectionIds[5])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[5])">steghide</li>
                         <p id="steghide" style="display:none">extract data hidden within a file</p>
                     </div>
-                    <button id="glossary-button" class="button borders" onclick="toggleGlossary()">GLOSSARY</button>
+                    <button id="glossary-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[3])">GLOSSARY</button>
                     <div id="glossary" style="display: none;">
                         <p>It's a big wide world out there. Can't be expected to know everything. That's what data
                             storage
                             is for.</p>
-                        <li id="arasaka-header" onmouseenter="toggleGlossaryArasaka()"
-                            onmouseleave="toggleGlossaryArasaka()">Arasaka</li>
+                        <li id="arasaka-header" onmouseenter="toggleSection(toggleHoverSectionIds[6])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[6])">Arasaka</li>
                         <p id="arasaka" style="display: none;"> The second largest corporation in all of the NUSA! Shame
                             they're not even American.
                             Now I'm no 'patridiot' but something tells me a corporation half a world away having that
@@ -114,8 +129,8 @@
                             'em in line.
                         </p>
                         <br>
-                        <li id="militech-header" onmouseenter="toggleGlossaryMilitech()"
-                            onmouseleave="toggleGlossaryMilitech()">Militech</li>
+                        <li id="militech-header" onmouseenter="toggleSection(toggleHoverSectionIds[7])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[7])">Militech</li>
                         <p id="militech" style="display: none;">Good old home grown American capitalism at its finest.
                             If
                             you need guns, vehicles, military personnel
@@ -127,8 +142,8 @@
                             used to head the corp and she says its all cool. </p>
 
                         <br>
-                        <li id="militech-header" onmouseenter="toggleGlossaryNetwatch()"
-                            onmouseleave="toggleGlossaryNetwatch()">Netwatch</li>
+                        <li id="militech-header" onmouseenter="toggleSection(toggleHoverSectionIds[8])"
+                            onmouseleave="toggleSection(toggleHoverSectionIds[8])">Netwatch</li>
                         <p id="netwatch" style="display: none;"> Ever heard of a thing called the Blackwall. ~~~
                             Spooooooky
                             ~~~. A big shield to keep all those
@@ -155,38 +170,30 @@
 
         <!-- ========================================================================================================================= -->
         <div id="centre panel" class="centre-panel borders">
-            <div id="output" class="skull-box">
+            <div id="output" class="centre-box centre-box-skull">
                 <p>Here</p>
-                <p>is</p>
-                <p>where</p>
-                <p>previously</p>
-                <p>typed</p>
-                <p>commands</p>
-                <p>will</p>
-                <p>go</p>
-                <p>...</p>
-                <p>e.g</p>
-                <p>ls</p>
-                <p>cat</p>
             </div>
             <hr>
             <div id="input-zone" class="box input-box">
                 <div id="uname-box" class="uname">
                     <p>[grim@data-tech_u97212 ~]$</p>
                 </div>
-                <div id="input-box" class="input">
-                    <input type="text" placeholder="...">
+                <div id="input-box" class="user-input">
+                    <input autofocus id="input" type="text" placeholder="type your terminal commands in here..."
+                        name="shell-input" />
                 </div>
             </div>
         </div>
         <!-- ========================================================================================================================= -->
         <div id="right panel" class="right-panel borders">
             <div id="main-section-button-padding" style="padding: 2%;">
-                <button id="software" class="button borders" onclick="toggleSoftware()">=== SOFTWARE ===</button>
+                <button id="software" class="button borders" onclick="toggleSection(toggleButtonSectionIds[4])">===
+                    SOFTWARE ===</button>
             </div>
             <div id="scrolling" class="scroll">
                 <div id="software-section" style="display:block">
-                    <button id="readme-misc-button" class="button borders" onclick="toggleReadMeSoftware()">READ
+                    <button id="readme-misc-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[5])">READ
                         ME!</button>
                     <div id="readme-software">
                         <p>Yo choom! There was a load of Netwatch garbage pre-installed here. I cleaned it up for you -
@@ -200,44 +207,56 @@
                         <p> -<em>Shade </em></p>
                     </div>
 
-                    <button id="music-button" class="button borders" onclick="toggleMusic()">MUSIC</button>
+                    <button id="music-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[6])">MUSIC</button>
                     <div id="music" style="display:none">
-                        <div id="music-container" class="">
-                            <iframe style="border: 0; width: 100%; height: 120px;"
-                                src="https://bandcamp.com/EmbeddedPlayer/album=3483895767/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/"
-                                seamless><a href="https://lazerhawk.bandcamp.com/album/skull-and-shark">Skull and Shark
-                                    by
-                                    Lazerhawk</a></iframe>
-                        </div>
-
-                        <div id="music-container" class="">
-                            <iframe style="border: 0; width: 100%; height: 120px;"
-                                src="https://bandcamp.com/EmbeddedPlayer/album=3352492535/size=large/bgcol=262a2b/linkcol=181a1b/tracklist=false/artwork=small/transparent=true/"
+                        <p> Netrunning is at least 15% cool vibes. This should get you like 5% of the way there.</p>
+                        <div id="music-container" class="music-embed borders">
+                            <iframe style="width: 100%; height: 40px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=3352492535/size=small/bgcol=333333/linkcol=ffffff/transparent=true/"
                                 seamless><a href="https://perturbator.bandcamp.com/album/i-am-the-night">I Am The Night
-                                    by
-                                    Perturbator</a></iframe>
+                                    by Perturbator</a></iframe>
                         </div>
 
-                        <div id="music container" class="">
-                            <iframe style="border: 0; width: 100%; height: 120px;"
-                                src="https://bandcamp.com/EmbeddedPlayer/album=4268712470/size=large/bgcol=262a2b/linkcol=181a1b/tracklist=false/artwork=small/transparent=true/"
+                        <div id="music-container" class="music-embed borders">
+                            <iframe style="width: 100%; height: 40px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=3483895767/size=small/bgcol=333333/linkcol=ffffff/transparent=true/"
+                                seamless><a href="https://lazerhawk.bandcamp.com/album/skull-and-shark">Skull and Shark
+                                    by Lazerhawk</a></iframe>
+                        </div>
+
+                        <div id="music container" class="music-embed borders">
+                            <iframe style="width: 100%; height: 40px;"
+                                src="https://bandcamp.com/EmbeddedPlayer/album=4268712470/size=small/bgcol=333333/linkcol=ffffff/transparent=true/"
                                 seamless><a
                                     href="https://lorn.bandcamp.com/album/yesterdays-pain-cut-the-anchor">YESTERDAY&#39;S
-                                    PAIN /
-                                    CUT THE ANCHOR by LORN</a></iframe>
+                                    PAIN / CUT THE ANCHOR by LORN</a></iframe>
                         </div>
                     </div>
 
-                    <button id="notes-button" class="button borders" onclick="toggleNotes()">NOTES</button>
+                    <button id="notes-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[7])">NOTES</button>
                     <div id="notes" style="display: none">
-                        <textarea id="notes-box" class="borders"
+                        <textarea id="notes-box" class="borders borders-dark"
                             placeholder="If you wanna take some notes, here's the place..."></textarea>
                     </div>
 
-                    <button id="themes-button" class="button borders" onclick="toggleThemes()">THEMES</button>
+                    <button id="themes-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[8])">THEMES</button>
                     <div id="themes" style="display:none">
-                        <li id="theme-dark" style="text-decoration:underline; font-weight: bold;" onclick="setDarkTheme()">dark <em>{by shade}</em></li>
-                        <li id="theme-high-contrast" style="text-decoration: none; font-weight: normal;" onclick="setHighConstrastTheme()">high contrast <em>by b@d</em></li>
+                        <p> Each netrunner has different preferences for the appearance of their terminal.
+                            The interface tech on this VM is kinda old so there's not a lot for customization. Here's what I
+                            could find. Click on one to try it out. Warning! Some of them are kinda eye-searing compared
+                            to my superior dark themes!
+                        </p>
+                        <p> -<em>Shade</em></p>
+                        <li id="theme-dark">dark <em>{by shade}</em></li>
+                        <li id="theme-high-contrast">high contrast <em>{by shade}</em></li>
+                        <li id="theme-arasaka">arasaka red <em>{by (${_uname}) not found}</em></li>
+                        <li id="theme-white">white <em>by {b@d}</em></li>
+                        <li id="theme-yellow">yellow<em>{by (${_uname}) not found}</em></li>
+                        <li id="theme-bsod">BSOD (legacy)<em>{by 8ug8ear}</em></li>
+
                     </div>
                 </div>
             </div>
@@ -247,7 +266,7 @@
     <footer id="footer" class="footer borders">
         <!-- <div id="netwatch-card"> -->
         <div id="zetatech-logo-container">
-            <img src="resources/zetatech.png" class="img" style="height: 6vh; width: 10vw;"
+            <img src="resources/zetatech.png" class="img zetatech-logo" style="height: 6vh; width: 10vw;"
                 title="error {\company-slogan.txt\} not found" alt="zetatech logo">
         </div>
         <span><em>|| Powered by Zetatech</em> /|\ <em>Protected by Netwatch ||</em></span>
@@ -260,7 +279,7 @@
         <!-- </div> -->
     </footer>
 
-   
+
 </body>
 
 </html>

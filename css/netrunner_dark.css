@@ -29,7 +29,7 @@ header,
    
 }
 .centre-box-skull { 
-    background-image: url(../resources/centre-logo_skull-on-black_v2_33op.png);
+    background-image: url(../resources/centre-logo_skull-on-black_v2_20op.png);
 }
 .input,
 #output * {
@@ -122,6 +122,10 @@ footer {
 
 }
 
+.addlinebreak {
+    white-space: pre-line;
+}
+
 .left-panel,
 .right-panel {
     flex-grow: 1;
@@ -160,6 +164,7 @@ input {
     width: 100%;
     background:none;
     font-weight: bold;
+    flex-grow: 1;
 
 }
 
@@ -221,8 +226,8 @@ hr {
     background-position: 50%;
     background-repeat: no-repeat;
     padding: 30px;
-    font-size: 14pt;
-    height: 90%;
+    font-size: 16pt;
+    height: 85%;
     object-fit: cover;
 }
 

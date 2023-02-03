@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link id="css"rel="stylesheet" href="css/netrunner_dark.css">
+    <link id="css" rel="stylesheet" href="css/netrunner_dark.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">  
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
@@ -23,14 +23,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+
+    <!-- <script defer src="../sampleGame-netrunner-test.js"></script> -->
+
     <script defer src="netrunner_js.js"></script>
 
     <title>grim@zetatech_u97212</title>
 
 </head>
 
-<body class="body borders" onload="startGame()">
-    <!-- ========================================================================================================================= -->
+<body id="body" class="body borders">
+    <!-- maybe move it so it can activate at a different time so my themeing can work-->
+    <!-- ============================= HEADER ============================================================================================ -->
 
     <header id="header" class="header borders">
 
@@ -46,9 +50,9 @@
         </div>
     </header>
 
-    <!-- ========================================================================================================================= -->
+    <!-- ============================= LEFT PANEL ============================================================================================ -->
     <div id="main-content-container" class="box">
-        <div id="left panel" class="left-panel borders" style="position:relative">
+        <div id="left-panel" class="left-panel borders" style="position:relative">
             <div id="main-section-button-pad" style="padding:2%">
                 <button id="help-button" class="button borders" onclick="toggleSection(toggleButtonSectionIds[0])">===
                     Help ===</button>
@@ -113,6 +117,7 @@
                     <button id="glossary-button" class="button borders"
                         onclick="toggleSection(toggleButtonSectionIds[3])">GLOSSARY</button>
                     <div id="glossary" style="display: none;">
+
                         <p>It's a big wide world out there. Can't be expected to know everything. That's what data
                             storage
                             is for.</p>
@@ -164,17 +169,73 @@
                             bottom of your screen.
                             I took care of that for ya. Just left the message to keep you on your toes.</p>
                     </div>
+                    <button id="map-button" class="button borders"
+                        onclick="toggleSection(toggleButtonSectionIds[11])">MAP</button>
+                    <div id="map" style="display: none;">
+                        <p> There's a task for you within the files of this VM. Something to test and prove yourself
+                            with.
+                            This datamap should be useful for that task.</p>
+                        <p> -<em>Shade</em></p>
+                        <span style="font-family: monospace;">
+                            ├── <strong>bbs_mask_0Hp8BAZ8gkF8</strong><br>
+                            │ └── permission denied <br>
+                            ├── <strong>bbs_mask_2mGUUHfQIk0t</strong><br>
+                            │ └── permission denied<br>
+                            ├── <strong> bbs_mask_9SOCqTxfm2Z</strong><br>
+                            │ ├── 91E0C5NMg5xE<br>
+                            │ ├── HjTESlk7aw4b<br>
+                            │ ├── M9KFZKUlring<br>
+                            │ ├── <strong>p7FzTKa13OhG</strong><br>
+                            │ │ ├── ruleset<br>
+                            │ │ ├── ufw.conf.d<br>
+                            │ │ └── <strong>whitelist</strong><br>
+                            │ │ | ├── jeon-kiri<br>
+                            │ │ | ├── leon<br>
+                            │ │ | ├── maman-briggite<br>
+                            │ │ | ├── moseley<br>
+                            │ │ | ├── mr-hands<br>
+                            │ │ | ├── placide<br>
+                            │ │ | └── ti-neptune<br>
+                            │ └── saoXGjvToAlh<br>
+                            ├── <strong>bbs_mask_hMlMhTNGxi05</strong><br>
+                            │ └── permission denied<br>
+                            ├── <strong>bbs_mask_XpPkmHxDgPfN</strong><br>
+                            │ └── permission denied<br>
+                            └── <strong>root</strong><br>
+                            | └── permission denied<br>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- ========================================================================================================================= -->
-        <div id="centre panel" class="centre-panel borders">
-            <div id="output" class="centre-box centre-box-skull">
-                <p>Here</p>
+        <!-- ======================= CENTRE PANEL ================================================================================================== -->
+        <div id="centre-panel" class="centre-panel borders">
+
+            <div id="welcome" class="borders centre-box centre-box-skull" style="text-align:center; padding:10%;">
+                <h2 style="font-family:monospace; font-size:22pt; font-weight:800; text-decoration: none;">"Welcome
+                    grim@zetatech_u97212! If this is your first time logging on to this virtual machine.
+                    Take some time to look around and familiarise yourself with the interface.</h2>
+                <button id="ok-button" class="button borders"
+                    onclick="toggleSection(toggleButtonSectionIds[9]), toggleSection(toggleButtonSectionIds[10])">
+                    Ok!
+                </button>
             </div>
+            <div id="output" class="centre-box centre-box-skull borders" style="display: none">
+                <p id="output-dir-name" style="font-weight:bold;"></p>
+                <p id="output-dir-parent"></p>
+                <p id="output-dir-children"></p>
+                <p id="output-files"></p>
+                <br>
+                <hr>
+                <br>
+                <p id="output-name"> [grim@zetatech_u97212 ~]$: </p>
+                <p id="output-description"></p>
+            </div>
+
+
             <hr>
-            <div id="input-zone" class="box input-box">
+            <div id="input-zone" class="box input-box borders">
                 <div id="uname-box" class="uname">
                     <p>[grim@data-tech_u97212 ~]$</p>
                 </div>
@@ -184,8 +245,9 @@
                 </div>
             </div>
         </div>
-        <!-- ========================================================================================================================= -->
-        <div id="right panel" class="right-panel borders">
+
+        <!-- ======================= RIGHT PANEL ================================================================================================== -->
+        <div id="right-panel" class="right-panel borders">
             <div id="main-section-button-padding" style="padding: 2%;">
                 <button id="software" class="button borders" onclick="toggleSection(toggleButtonSectionIds[4])">===
                     SOFTWARE ===</button>
@@ -245,32 +307,36 @@
                         onclick="toggleSection(toggleButtonSectionIds[8])">THEMES</button>
                     <div id="themes" style="display:none">
                         <p> Each netrunner has different preferences for the appearance of their terminal.
-                            The interface tech on this VM is kinda old so there's not a lot for customization. Here's what I
+                            The interface tech on this VM is kinda old so there's not a lot for customization. Here's
+                            what I
                             could find. Click on one to try it out. Warning! Some of them are kinda eye-searing compared
                             to my superior dark themes!
                         </p>
                         <p> -<em>Shade</em></p>
                         <li id="theme-dark">dark <em>{by shade}</em></li>
-                        <li id="theme-high-contrast">high contrast <em>{by shade}</em></li>
-                        <li id="theme-arasaka">arasaka red <em>{by (${_uname}) not found}</em></li>
-                        <li id="theme-white">white <em>by {b@d}</em></li>
-                        <li id="theme-yellow">yellow<em>{by (${_uname}) not found}</em></li>
-                        <li id="theme-bsod">BSOD (legacy)<em>{by 8ug8ear}</em></li>
+                        <li id="theme-high-contrast" style="opacity:50%">high contrast <em>{by shade}</em></li>
+                        <li id="theme-arasaka" style="opacity:50%">arasaka red <em>{by (${_uname}) not found}</em></li>
+                        <li id="theme-white" style="opacity:50%">white <em>by {b@d}</em></li>
+                        <li id="theme-yellow" style="opacity:50%">yellow<em>{by (${_uname}) not found}</em></li>
+                        <li id="theme-bsod" style="opacity:50%">BSOD (legacy)<em>{by 8ug8ear}</em></li>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ========================================================================================================================= -->
+    <!-- ===================================== FOOTER ==================================================================================== -->
     <footer id="footer" class="footer borders">
         <!-- <div id="netwatch-card"> -->
         <div id="zetatech-logo-container">
             <img src="resources/zetatech.png" class="img zetatech-logo" style="height: 6vh; width: 10vw;"
                 title="error {\company-slogan.txt\} not found" alt="zetatech logo">
         </div>
+        <button id="simulate-win" class="borders" style="background: none;"
+        onclick="gameWin()">simulate game win</button>
         <span><em>|| Powered by Zetatech</em> /|\ <em>Protected by Netwatch ||</em></span>
-
+        <button id="simulate-win" class="borders" style="background: none;"
+        onclick="gameLose()">simulate game loss</button>
         <div id="qr-container">
             <img src="resources/follow-me.png" class="img qr"
                 title="For more information on your DataTech terminal software package follow the link."
